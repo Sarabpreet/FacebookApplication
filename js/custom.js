@@ -11,41 +11,41 @@ var db={
 
 		2:{
 			question:"are you good enough in counting?",
-			answer:['yes, have counted condoms in a national university', 'counted number of beer bottles and condoms(in a university)','Yes, counted huge number of injections  (AGAIN in a university!)','I dont know counting, i study at a university'],
+			answer:['yes, i want to count the number of condoms and beer in a university', 'counted number of beer bottles and condoms(in a university)','Yes, counted huge number of injections  (AGAIN in a university!)','I dont know counting, i study at a university'],
 			ra:2
 		},
 
 		3:{
-			question:"How Are you doing? 3",
-			answer:['i am good', 'i am really really good','main beer hoon bc','beer meri jaan'],
+			question:"When would you say Bharat Mata ki Jai?",
+			answer:['While hitting someone who has been just been accused!', 'When noone is arround','if i am being hit, then!','When i am on camera.'],
 			ra:3
 		},
 
 
 		4:{
-			question:"How Are you doing? 4",
-			answer:['i am good', 'i am really really good','main beer hoon bc','beer meri jaan'],
+			question:"Do you like photoshop?",
+			answer:['Yes, i am a beginner', 'Yes, i am a master at it.','main beer hoon bc','beer meri jaan'],
 			ra:4
 		},
 
 
 		5:{
-			question:"How Are you doing? 5",
-			answer:['i am good', 'i am really really good','main beer hoon bc','beer meri jaan'],
+			question:"do you eat nonveg?",
+			answer:['yes, just chicken', 'cant reveal that blah blah','main beer hoon bc','beer meri jaan'],
 			ra:1
 		},
 
 
 		6:{
-			question:"How Are you doing? 6",
-			answer:['i am good', 'i am really really good','main beer hoon bc','beer meri jaan'],
+			question:"do you like shouting?",
+			answer:['yes, while i am anchoring on tv channel', 'yes, i go at court.','main beer hoon bc','beer meri jaan'],
 			ra:2
 		},
 
 
 		7:{
-			question:"How Are you doing? 7",
-			answer:['i am good', 'i am really really good','main beer hoon bc','beer meri jaan'],
+			question:"do you believe in justice?",
+			answer:['yes, but i will trash a traitor', '','main beer hoon bc','beer meri jaan'],
 			ra:3
 		}
 	}
