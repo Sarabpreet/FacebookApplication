@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/theme.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-      <link type="text/less" href="less/theme.less" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,17 +41,17 @@
 <div class="warning animated animated fadeIn">
   <!-- warning block starts above -->
 
-<h2><span class="red"> <span class="glyphicon glyphicon-warning-sign"></span> Warning:</span> This app uses sources from India's Top Politican Leaders. Choose the right answer everytime, one big mistake could label you from being a Nationalist to Anti-Nationalist.</h2>
+<h2><span class="red"> <span class="glyphicon glyphicon-warning-sign"></span> Warning:</span> This app uses excerpts from India's top politicans. One wrong answer could label you a Nationalist or an Anti-Nationalist. (maybe even worse)</h2>
 
-<a href="#" class="btn" id="agreed">
+<!-- <a href="#" class="btn" > -->
 
-  <fb:login-button scope="public_profile,email,user_friends,publish_actions" onlogin="checkLoginState();">
+  <fb:login-button scope="public_profile,email,user_friends,publish_actions" id="agreed" onlogin="checkLoginState();">
 </fb:login-button>
 
 
-</a>
+<!-- </a> -->
 
-<p class="light"> <span class="glyphicon glyphicon-bell"></span> By clicking log in, you are accepting the fact that this app could label you an anti-nationalist or nationalist and you will be okay with it. #NoStringsAttachedBro</p>
+<p class="light"> <span class="glyphicon glyphicon-bell"></span>Click the above button to get started...</p>
 <!-- warning block closes below -->
 </div>
 
@@ -92,21 +92,24 @@
 <div class="result animated fadeIn">
 <div class="q-head">Result: <span class="total"></span></div>  
 
-<h2 class="text-center">  <span class="name"></span>!! we have some bad news for you!</h2>
+<h2 class="text-center">  <span class="name"></span>!! <span class="heading"></span></h2>
 <!-- <img src="img/bg.png" class="image" alt=""> -->
 
-<canvas id="myCanvas" class="image animated tada" width="200px" height="200px"></canvas>
+<canvas id="myCanvas" class="image animated pulse infinite" width="200px" height="200px"></canvas>
   
+<p class="details"></p>
 
-<p class="light text-center"> here is the <a href="#">list</a> of articles we considered before making this app, we don't want to hurt anyone's sentiments, but sadly some people need help (#TakeCareMamu), please be kind enough for those people. they are our own. they are our fellow Indians. </p>
 <div class="row">
   
 
-<a href="#" class="q-head col-lg-6">make this profile picture  <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></a>
-<a href="#" class="q-head col-lg-6">Share on Facebook  <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+<a href="#" class="q-head col-lg-4 make">Set as Profile Picture  <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></a>
+<a href="#" class="q-head col-lg-4 share">Share on Facebook  <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+<a href="#" class="q-head col-lg-4 retake">Retake <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+
 
 
 </div>
+
 </div>
 
 
@@ -128,7 +131,11 @@
 
 
 <!-- for development -->
+
+<!-- 
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+ -->
+
 <!-- for development -->
 
 

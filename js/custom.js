@@ -4,13 +4,13 @@ var db={
 
 	qa:{
 		1:{
-			question:"Do you love your country?",
+			question:"Do you love India as a country?",
        answer:["Yes", "No"],
-       ra:0
+       ra:1
 		},
 
 		2:{
-			question:"Would you be intrested in couting number of used condom's in a university?",
+			question:"Would you be intrested in counting number of used condom's in a university?",
 			answer:['Yes','No'],
       ra:1
 		},
@@ -24,20 +24,20 @@ var db={
 
 		4:{
 			question:"Are you good when it comes to editing pictures/videos/audios?",
-			answer:['Yes, i post alot of such stuffs','No, I dont use photoshop'],
+			answer:['Yes, i post alot of such stuffs','No, never done!'],
 			ra:1
 		},
 
 
 		5:{
-			question:"How will you react if someone said anything disrespectfull about your country?",
-			answer:['Will kill/beat the shit out of him or her',' will try to know the reason, if possible will try to make a counter point'],
+			question:"How will you react if someone say anything disrespectfull about your country?",
+			answer:['Will kill/beat the shit out of him or her.',' will try to know the reason, if possible will try to make a counter point.'],
 			ra:1
 		},
 
 
 		6:{
-			question:"Do you believe in the constitution of india?",
+			question:"If you could go to Pakistan for a bag pack trip, would you?",
       answer:['Yes','No'],
 			ra:1
 		},
@@ -45,13 +45,22 @@ var db={
 
 		7:{
 			question:"Do you like news anchors being a judge, or lawyer's being a Judge?",
-      answer:['YES, Why not? After all they know the facts Well!','No, A Judge should be a Judge. NOT ANYONE ELSE'],
-			ra:3
+      answer:['YES, Why not? After all they know the facts well!','No, A Judge should be a Judge. NOT ANYONE ELSE'],
+			ra:1
 		}
 	}
 
 
 };
+
+
+
+
+start();
+
+
+
+
 
 
 // loading fb sdk
@@ -111,8 +120,9 @@ var db={
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
-
+  var abc;
   var img,nameV={};
+  var fname;
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
@@ -122,12 +132,16 @@ var db={
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
   
-FB.api(
-  '/me',
-  'GET',
-  {"fields":"id,name"},
+
+
+
+
+FB.api('/me','GET',{"fields":"picture.width(200).height(200)"},
   function(response) {
-   nameV=response;
+    
+    abc=response;
+    img=abc.picture.data.url;
+
   }
 );
 
@@ -136,13 +150,14 @@ FB.api(
 FB.api(
   '/me',
   'GET',
-  {"fields":"picture.width(200).height(200)"},
+  {"fields":"first_name"},
   function(response) {
-   
-  img=response.picture.data.url;
-  nameV=nameV.name;
+      
+      fname=response.first_name;
+      nameV=fname;
   }
 );
+
 
 
 
@@ -150,13 +165,16 @@ FB.api(
 }
 
 
+var heading,details;
 
 
 
-
-// $('.warning').hide();
+function start(){
+// // $('.warning').hide();
 $('.question').hide();
 $('.result').hide();
+
+}
 
 
 $( "#agreed" ).click(function() {
@@ -168,6 +186,7 @@ $('#agreed').hide();
 // $('.question').show();
 
 });
+
 var label;
 var score=[];
 var count=1;
@@ -218,67 +237,57 @@ else {
 
 $('.question').hide();
 $('.result').show();
-calc_score();
+var sco=calc_score();
+
 // $(".image").attr('src',img);
 $('.name').text(nameV);
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-      var img2=new Image();
 
+                                    if(sco>5) {
+                                    // nationalist.
+                                    console.log(sco);
+                                    cavasThing(10);
+                                    heading="You are one pure Indian according to our politicians and leaders, congrats!";
+                                    details="It's quite impressing the way you have presented yourself here, you have strongly faced questions about visiting to pakistan to counting condoms and beer in a university!, you have faced all like a true Indian*";
 
+                                    }
+                                    if(sco<2) {
+                                       cavasThing(12);
+                                       console.log(sco);
 
-      img2.onload = function() {
-        // context.drawImage(imageObj,0,0) ;
-console.log("i am outside");
+                                    heading="Sorry, according to our politicians and leaders, you are a terrorist. please surrender asap!";
+                                    details="We understand, it's tough being a terrorist in nation where everyone is either being nationalist or anti-nationalist, we wish you luck with your 72 virgins*";
+                                    }
+                                    if(sco<5 && sco>2){
+                                       cavasThing(11);
+                                       console.log(sco);
+                                       heading="Bad news!, it  seems like you're anti-nationalist according to our leaders, take care of yourself, there are lawyer out there!";
+                                       details="hang in there! we know it's one tough time for you but if it helps, we would surely like to say \"it's better then being a terrorist for sure!\"*";
+                                    }
+                         
 
-           imageObj.onload = function() {
-                        
-                        context.drawImage(img2,0,0) ;   
-                        context.drawImage(imageObj,0,0);     
-                        console.log("i am inside");   
-                     };
-          
-          imageObj.src="img/anti.png";
-      };
-
-
-
-
-
-
-      // imageObj.src="img/anti.png";
-      // // img2.src="img/nati.png";
-      img2.src=img;
-
-     console.log(img);
 }
 }
 
 
 
-var total;
 
 
+var total = 0;
 
 function calc_score(){
 
-
-
-total = 0;
 $.each(score,function() {
     total += this;
-
 });
 
 $('.total').html(total);
-
+return $('.total').html();
 }
 
 
 function uncheck(){
-
-$("label input:checked").removeAttr("checked");
+    $("label input:checked").removeAttr("checked");
+    console.log("unchecked?");
 }
 
 
@@ -292,11 +301,101 @@ $("label input:checked").removeAttr("checked");
 
 
 
+    
+
+function cavasThing(x){
+
+
+        if(x==10) {
+       var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var img2=new Image();
+      var imageObj = new Image();
+      img2.onload=function(){
+
+
+            imageObj.onload = function() {
+                                context.drawImage(img2,0,0) ;   
+                                context.drawImage(imageObj,0,0);     
+                                console.log("i am inside");   
+                             };
+
+            imageObj.src="img/nati.png";
+    $('.heading').text(heading);
+     $('.details').text(details);
+
+              };
+
+      img2.src=img;
 
 
 
+        }
 
 
+        if(x==11) {
+
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var img2=new Image();
+      var imageObj = new Image();
+      img2.onload=function(){
+
+
+            imageObj.onload = function() {
+                                context.drawImage(img2,0,0) ;   
+                                context.drawImage(imageObj,0,0);     
+                                console.log("i am inside");   
+                             };
+
+            imageObj.src="img/anti.png";
+                 $('.heading').text(heading);
+     $('.details').text(details);
+
+              };
+
+      img2.src=img;
+     console.log(img);
+
+
+
+        }
+
+
+  if(x==12) {
+
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var img2=new Image();
+      var imageObj = new Image();
+      img2.onload=function(){
+
+
+            imageObj.onload = function() {
+                                context.drawImage(img2,0,0) ;   
+                                context.drawImage(imageObj,0,0);     
+                                console.log("i am inside");   
+                             };
+
+            imageObj.src="img/teri.png";
+  $('.heading').text(heading);
+     $('.details').text(details);
+
+              };
+
+      img2.src=img;
+     console.log(img);
+
+
+ }
+
+
+
+}
+
+
+// imageObj.src="img/anti.png";
+      // // img2.src="img/nati.png";
 
 
 
