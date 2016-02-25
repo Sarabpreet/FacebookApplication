@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Thing...</title>
+</head>
+<body>
+
+
+  <canvas id="myCanvas" width="750" height="750"></canvas>
+
+
+
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+      var img2=new Image();
+      imageObj.onload = function() {
+        context.drawImage(imageObj,0,0) ;
+        context.drawImage(img2,0,0) ;
+ 
+      };
+
+      imageObj.src="img/anti.png";
+      img2.src="img/nati.png";
+
+    	// img2.src="img/anti.png";
+    </script>
+
+
+
+
+	
+</body>
+</html>

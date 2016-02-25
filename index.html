@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Hi, How nationalist are you?</title>
-    <link rel="stylesheet" href="css/theme.css">
+
     <link rel="stylesheet" href="css/ani.css">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/theme.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
       <link type="text/less" href="less/theme.less" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -33,14 +35,13 @@
 
 <div class="header">
   
-  <h1>Are you Anti-Nationalist?</h1>
+  <h1>Are you Anti-National?</h1>
 </div>
 
-<div class="warning">
+<div class="warning animated animated fadeIn">
   <!-- warning block starts above -->
 
-<h2><span class="red">Warning:</span> This is yet another loerm ispsum,
- before click the next button</h2>
+<h2><span class="red"> <span class="glyphicon glyphicon-warning-sign"></span> Warning:</span> This app uses sources from India's Top Politican Leaders. Choose the right answer everytime, one big mistake could label you from being a Nationalist to Anti-Nationalist.</h2>
 
 <a href="#" class="btn" id="agreed">
 
@@ -50,13 +51,13 @@
 
 </a>
 
-<p class="light">some random full of gali  type thing and blah blah and there has been a thing</p>
+<p class="light"> <span class="glyphicon glyphicon-bell"></span> By clicking log in, you are accepting the fact that this app could label you an anti-nationalist or nationalist and you will be okay with it. #NoStringsAttachedBro</p>
 <!-- warning block closes below -->
 </div>
 
 
-<div class="question" id="question">
-<div class="q-head"><p class="JStotalStat"> <span class="no">1</span> of 7 question</p></div>  
+<div class="question animated fadeIn" id="question">
+<div class="q-head"> <span class="no">1</span> of 7 question</div>  
 <div class="q">do you love your country?</div>
 <div class="a-list">
 
@@ -70,7 +71,7 @@
      <span class="Op2"></span>
         </label>
 
-        <label for="c">
+<!--         <label for="c">
           <input type="radio" name="hi" id="c" value="3">
              <span class="Op3"></span>
         </label>
@@ -78,25 +79,37 @@
         <label for="d">
           <input type="radio" name="hi" id="d" value="4">
           <span class="Op4"></span>
-        </label>
+        </label> -->
 
 </div>
 
 
-<a href ="#question" class="q-head next">next</a>
+<a href ="#question" class="q-head next">Next Question  <span class="glyphicon glyphicon-forward"></span></a>
 
 </div>
 <!-- question block ends here... -->
 
-<div class="result">
+<div class="result animated fadeIn">
 <div class="q-head">Result: <span class="total"></span></div>  
 
-<h2 class="text-center"><span class="name">Sarabpreet!!</span> we have some bad news for you!</h2>
-<img src="img/bg.png" class="image" alt="">
+<h2 class="text-center">  <span class="name"></span>!! we have some bad news for you!</h2>
+<!-- <img src="img/bg.png" class="image" alt=""> -->
 
-<p class="light text-center">ps:This quiz orem ipsum dolor sit amet, consectetur adipisicing elit. Quas hic dolores quam quis, .</p>
+<canvas id="myCanvas" class="image animated tada" width="200px" height="200px"></canvas>
+  
 
-<a href="#" class="q-head">Share on Facebook &amp; Update your Profile Picture</a>
+<p class="light text-center"> here is the <a href="#">list</a> of articles we considered before making this app, we don't want to hurt anyone's sentiments, but sadly some people need help (#TakeCareMamu), please be kind enough for those people. they are our own. they are our fellow Indians. </p>
+<div class="row">
+  
+
+<a href="#" class="q-head col-lg-6">make this profile picture  <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></a>
+<a href="#" class="q-head col-lg-6">Share on Facebook  <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+
+
+</div>
+</div>
+
+
 </div>
 
 <!-- main wrap ends here.. -->

@@ -4,48 +4,48 @@ var db={
 
 	qa:{
 		1:{
-			question:"How much do you love your country?",
-			answer:['just enough', 'enough to kill someone','can kill myself for country','as much as every proud indian'],
-			ra:1
+			question:"Do you love your country?",
+       answer:["Yes", "No"],
+       ra:0
 		},
 
 		2:{
-			question:"are you good enough in counting?",
-			answer:['yes, i want to count the number of condoms and beer in a university', 'counted number of beer bottles and condoms(in a university)','Yes, counted huge number of injections  (AGAIN in a university!)','I dont know counting, i study at a university'],
-			ra:2
+			question:"Would you be intrested in couting number of used condom's in a university?",
+			answer:['Yes','No'],
+      ra:1
 		},
 
 		3:{
-			question:"When would you say Bharat Mata ki Jai?",
-			answer:['While hitting someone who has been just been accused!', 'When noone is arround','if i am being hit, then!','When i am on camera.'],
-			ra:3
+			question:"When did you said 'Bharat Mata Ki Jai?' recently?",
+			answer:['In a public gathering, in a facebook/twitter post','I dont remember exactly!'],
+			ra:1
 		},
 
 
 		4:{
-			question:"Do you like photoshop?",
-			answer:['Yes, i am a beginner', 'Yes, i am a master at it.','main beer hoon bc','beer meri jaan'],
-			ra:4
+			question:"Are you good when it comes to editing pictures/videos/audios?",
+			answer:['Yes, i post alot of such stuffs','No, I dont use photoshop'],
+			ra:1
 		},
 
 
 		5:{
-			question:"do you eat nonveg?",
-			answer:['yes, just chicken', 'cant reveal that blah blah','main beer hoon bc','beer meri jaan'],
+			question:"How will you react if someone said anything disrespectfull about your country?",
+			answer:['Will kill/beat the shit out of him or her',' will try to know the reason, if possible will try to make a counter point'],
 			ra:1
 		},
 
 
 		6:{
-			question:"do you like shouting?",
-			answer:['yes, while i am anchoring on tv channel', 'yes, i go at court.','main beer hoon bc','beer meri jaan'],
-			ra:2
+			question:"Do you believe in the constitution of india?",
+      answer:['Yes','No'],
+			ra:1
 		},
 
 
 		7:{
-			question:"do you believe in justice?",
-			answer:['yes, but i will trash a traitor', '','main beer hoon bc','beer meri jaan'],
+			question:"Do you like news anchors being a judge, or lawyer's being a Judge?",
+      answer:['YES, Why not? After all they know the facts Well!','No, A Judge should be a Judge. NOT ANYONE ELSE'],
 			ra:3
 		}
 	}
@@ -112,7 +112,7 @@ var db={
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
 
-  var img;
+  var img,nameV={};
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
@@ -122,23 +122,25 @@ var db={
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
   
-FB.api('/me/friends','GET',{"fields":"picture.width(250).height(250)"},
+FB.api(
+  '/me',
+  'GET',
+  {"fields":"id,name"},
   function(response) {
-     console.log(response);
-      resp=response;
+   nameV=response;
   }
 );
+
 
 
 FB.api(
   '/me',
   'GET',
-  {"fields":"picture.width(250).height(250)"},
+  {"fields":"picture.width(200).height(200)"},
   function(response) {
    
   img=response.picture.data.url;
-
-
+  nameV=nameV.name;
   }
 );
 
@@ -152,12 +154,9 @@ FB.api(
 
 
 
-// // $('.warning').hide();
-// $('.question').hide();
-// $('.result').hide();
-
-
-
+// $('.warning').hide();
+$('.question').hide();
+$('.result').hide();
 
 
 $( "#agreed" ).click(function() {
@@ -171,32 +170,33 @@ $('#agreed').hide();
 });
 var label;
 var score=[];
-var count=0;
+var count=1;
 
 $( ".next" ).bind( "click", function() {
 
 label=$('label');
-var value=$("label input:checked" ).val();
+var value=$("label input:checked").val();
 value=parseInt(value);
 console.log(value);
 count++;
 change_question(count,value);
+uncheck();
+
 });
 
 
 function change_question(x,y){
 
-if(x<7){
+if(x<=7){
 
 $('.no').html(x);
-
 $('.q').html(db.qa[x].question);
 
 // options...
 $('.Op1').html(db.qa[x].answer[0]);
 $('.Op2').html(db.qa[x].answer[1]);
-$('.Op3').html(db.qa[x].answer[2]);
-$('.Op4').html(db.qa[x].answer[3]);
+// $('.Op3').html(db.qa[x].answer[2]);
+// $('.Op4').html(db.qa[x].answer[3]);
 
 var temp1=db.qa[x].ra;
 
@@ -219,7 +219,39 @@ else {
 $('.question').hide();
 $('.result').show();
 calc_score();
-$(".image").attr('src',img);
+// $(".image").attr('src',img);
+$('.name').text(nameV);
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+      var img2=new Image();
+
+
+
+      img2.onload = function() {
+        // context.drawImage(imageObj,0,0) ;
+console.log("i am outside");
+
+           imageObj.onload = function() {
+                        
+                        context.drawImage(img2,0,0) ;   
+                        context.drawImage(imageObj,0,0);     
+                        console.log("i am inside");   
+                     };
+          
+          imageObj.src="img/anti.png";
+      };
+
+
+
+
+
+
+      // imageObj.src="img/anti.png";
+      // // img2.src="img/nati.png";
+      img2.src=img;
+
+     console.log(img);
 }
 }
 
@@ -241,13 +273,13 @@ $.each(score,function() {
 
 $('.total').html(total);
 
-
-
-
-
 }
 
 
+function uncheck(){
+
+$("label input:checked").removeAttr("checked");
+}
 
 
 
