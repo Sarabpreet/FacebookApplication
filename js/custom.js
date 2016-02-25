@@ -261,7 +261,7 @@ $('.name').text(nameV);
                                        cavasThing(11);
                                        console.log(sco);
                                        heading="Bad news!, it  seems like you're anti-nationalist according to our leaders, take care of yourself, there are lawyer out there!";
-                                       details="hang in there! we know it's one tough time for you but if it helps, we would surely like to say \"it's better then being a terrorist for sure!\"*";
+                                       details="we know it's one tough time for you, perhaps you should avoid eating noodles and wearing jeans. if it helps, we would surely like to say \"it's better then being a terrorist for sure!\"*";
                                     }
                          
 
@@ -318,11 +318,12 @@ function cavasThing(x){
                                 context.drawImage(img2,0,0) ;   
                                 context.drawImage(imageObj,0,0);     
                                 console.log("i am inside");   
+                                 $('.heading').text(heading);
+                                $('.details').text(details);
                              };
 
             imageObj.src="img/nati.png";
-    $('.heading').text(heading);
-     $('.details').text(details);
+
 
               };
 
@@ -346,11 +347,12 @@ function cavasThing(x){
                                 context.drawImage(img2,0,0) ;   
                                 context.drawImage(imageObj,0,0);     
                                 console.log("i am inside");   
+                                                $('.heading').text(heading);
+     $('.details').text(details);
                              };
 
             imageObj.src="img/anti.png";
-                 $('.heading').text(heading);
-     $('.details').text(details);
+ 
 
               };
 
@@ -375,12 +377,13 @@ function cavasThing(x){
                                 context.drawImage(img2,0,0) ;   
                                 context.drawImage(imageObj,0,0);     
                                 console.log("i am inside");   
+                                $('.heading').text(heading);
+   $('.details').text(details);
+
                              };
 
             imageObj.src="img/teri.png";
-  $('.heading').text(heading);
-     $('.details').text(details);
-
+  
               };
 
       img2.src=img;
