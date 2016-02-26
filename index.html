@@ -4,6 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+<meta property="og:type"               content="Application" />
+<meta property="og:title"              content="What are you? Nationalist OR Anti-Nationalist?" />
+<meta property="og:description"        content="Find out if you are nationalist enough according to our politicians." />
+<meta property="og:image"              content="https://placehold.it/200x200" />
+
+
+
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Hi, How nationalist are you?</title>
 
@@ -58,7 +68,7 @@
 
 <div class="question animated fadeIn" id="question">
 <div class="q-head"> <span class="no">1</span> of 7 question</div>  
-<div class="q">do you love your country?</div>
+<div class="q"></div>
 <div class="a-list">
 
         <label for="a">
@@ -102,7 +112,7 @@
 <div class="row">
   
 
-<a href="#" class="q-head col-lg-4 make">Set as Profile Picture  <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></a>
+<a href="#" id="download" class="q-head col-lg-4 make" target="_blank">Set as Profile Picture  <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></a>
 <a href="#" class="q-head col-lg-4 share">Share on Facebook  <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
 <a href="#" class="q-head col-lg-4 retake">Retake <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
 
@@ -143,7 +153,70 @@
     <script src="js/jq.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+        <script src="js/canvjs.js"></script>
     <script src="js/custom.js"></script>
-    
+
+
+
+
+
+
+
+
+
+    <div class="modal fade shareM" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">We have shared the result on your wall!</h4>
+      </div>
+      <div class="modal-body">
+        
+
+<p>Shared this result sucessfully! Thank you for using our app #NationalistBecause</p>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade makeM" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Make this your profile picture with the hash tag</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>

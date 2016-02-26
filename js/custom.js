@@ -99,7 +99,11 @@ start();
       
         $('.question').show();
       testAPI();
-      change_question(1,0);
+
+
+      var a=document.querySelector('.next');
+      a.click();
+
  
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -123,6 +127,15 @@ start();
   var abc;
   var img,nameV={};
   var fname;
+  var heading,details;
+  var sco=0;
+  var label;
+  var score=[];
+  var count=0;
+  var total=0;
+
+      var canvas = document.getElementById('myCanvas');
+
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
@@ -159,13 +172,9 @@ FB.api(
 );
 
 
-
-
-
 }
 
 
-var heading,details;
 
 
 
@@ -185,14 +194,13 @@ $('#agreed').hide();
 
 // $('.question').show();
 
+
 });
 
-var label;
-var score=[];
-var count=1;
+
+
 
 $( ".next" ).bind( "click", function() {
-
 label=$('label');
 var value=$("label input:checked").val();
 value=parseInt(value);
@@ -200,13 +208,14 @@ console.log(value);
 count++;
 change_question(count,value);
 uncheck();
-
 });
 
 
 function change_question(x,y){
 
-if(x<=7){
+console.log("-----"+x);
+console.log("========="+y);
+if(x<8){
 
 $('.no').html(x);
 $('.q').html(db.qa[x].question);
@@ -237,31 +246,37 @@ else {
 
 $('.question').hide();
 $('.result').show();
-var sco=calc_score();
-
+sco=calc_score();
 // $(".image").attr('src',img);
 $('.name').text(nameV);
 
-                                    if(sco>5) {
+$('.q').html("");
+$('.Op1').html("");
+$('.Op2').html("");
+
+
+
+
+                                    if(sco>=5) {
                                     // nationalist.
                                     console.log(sco);
                                     cavasThing(10);
-                                    heading="You are one pure Indian according to our politicians and leaders, congrats!";
+                                    heading="you are one pure Indian according to our politicians and leaders, congrats there are very few of them out there!";
                                     details="It's quite impressing the way you have presented yourself here, you have strongly faced questions about visiting to pakistan to counting condoms and beer in a university!, you have faced all like a true Indian*";
 
                                     }
-                                    if(sco<2) {
+                                    if(sco<=2) {
                                        cavasThing(12);
                                        console.log(sco);
 
-                                    heading="Sorry, according to our politicians and leaders, you are a terrorist. please surrender asap!";
+                                    heading="sorry, according to our politicians and leaders, you are a terrorist. please surrender asap!";
                                     details="We understand, it's tough being a terrorist in nation where everyone is either being nationalist or anti-nationalist, we wish you luck with your 72 virgins*";
                                     }
                                     if(sco<5 && sco>2){
                                        cavasThing(11);
                                        console.log(sco);
-                                       heading="Bad news!, it  seems like you're anti-nationalist according to our leaders, take care of yourself, there are lawyer out there!";
-                                       details="we know it's one tough time for you, perhaps you should avoid eating noodles and wearing jeans. if it helps, we would surely like to say \"it's better then being a terrorist for sure!\"*";
+                                       heading="bad news!, it  seems like you're anti-nationalist according to our leaders, take care of yourself, there are lawyers out there!";
+                                       details="we know it's one tough time for you, perhaps you should avoid eating noodles and wearing jeans. if it helps, we would surely like to say \"it's better than being a terrorist for sure!\"*";
                                     }
                          
 
@@ -272,7 +287,7 @@ $('.name').text(nameV);
 
 
 
-var total = 0;
+
 
 function calc_score(){
 
@@ -295,22 +310,19 @@ function uncheck(){
 
 
 
-
-
-
-
-
-
     
 
 function cavasThing(x){
 
 
         if(x==10) {
-       var canvas = document.getElementById('myCanvas');
+
       var context = canvas.getContext('2d');
       var img2=new Image();
       var imageObj = new Image();
+      var link=document.getElementById('download');
+
+
       img2.onload=function(){
 
 
@@ -320,6 +332,8 @@ function cavasThing(x){
                                 console.log("i am inside");   
                                  $('.heading').text(heading);
                                 $('.details').text(details);
+                                     
+                                                   domagic(link);
                              };
 
             imageObj.src="img/nati.png";
@@ -336,10 +350,11 @@ function cavasThing(x){
 
         if(x==11) {
 
-      var canvas = document.getElementById('myCanvas');
       var context = canvas.getContext('2d');
       var img2=new Image();
       var imageObj = new Image();
+      var link=document.getElementById('download');
+
       img2.onload=function(){
 
 
@@ -348,7 +363,12 @@ function cavasThing(x){
                                 context.drawImage(imageObj,0,0);     
                                 console.log("i am inside");   
                                                 $('.heading').text(heading);
-     $('.details').text(details);
+                                                $('.details').text(details);
+                                                domagic(link);
+
+                                          
+
+
                              };
 
             imageObj.src="img/anti.png";
@@ -366,10 +386,13 @@ function cavasThing(x){
 
   if(x==12) {
 
-      var canvas = document.getElementById('myCanvas');
+
       var context = canvas.getContext('2d');
       var img2=new Image();
       var imageObj = new Image();
+      var link=document.getElementById('download');
+
+
       img2.onload=function(){
 
 
@@ -378,7 +401,9 @@ function cavasThing(x){
                                 context.drawImage(imageObj,0,0);     
                                 console.log("i am inside");   
                                 $('.heading').text(heading);
-   $('.details').text(details);
+                                 $('.details').text(details);
+                                         domagic(link);
+                                         
 
                              };
 
@@ -404,11 +429,85 @@ function cavasThing(x){
 
 
 
+$('.retake').bind('click',retake);
+$('.share').bind('click',share);
+// $('.make').bind('click',domagic);
+
+
+
+function retake(){
+
+      $('.total').html(0);
+      start();
+      $('.warning').show();
+      count=0;
+      console.log(count);
+      score=[];
+      total = 0;
+
+}
+
+
+function download(){
 
 
 
 
 
+
+
+
+}
+
+function domagic(x){
+
+
+
+                                    
+                                                console.log(x);
+                                                console.log(canvas);
+                                                x.href=canvas.toDataURL();
+                                                // x.href="http://sarabpreet.in";
+                                                x.setAttribute("target","_blank");
+                                              
+
+
+
+}
+
+
+function share(){
+
+var appurl="http://sarabpreet.in";
+var entireMessage="[Result]\n "+nameV+" : "+heading+" \n\n check your result@ "+appurl+" \n \n#NationalistBecause";
+
+
+  FB.api('/me/feed', 'post', {message: entireMessage});
+  $('.shareM').modal('toggle');
+
+
+// $('.shareM').modal('toggle');
+
+// FB.ui({
+//   method: 'share',
+//   href: 'http://facebook.com/sarabpreet.in',
+//   caption:heading,
+// }, function(response){
+
+
+
+// });
+
+}
+
+
+function make(){
+
+$('.makeM').modal('toggle');
+
+
+
+}
 
 
 
