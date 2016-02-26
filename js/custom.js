@@ -68,7 +68,7 @@ start();
 
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '139900033028928',
+      appId      : '1686488428288219',
       xfbml      : true,
       version    : 'v2.5'
     });
@@ -182,6 +182,7 @@ function start(){
 // // $('.warning').hide();
 $('.question').hide();
 $('.result').hide();
+$('.sharething').hide();
 
 }
 
@@ -201,6 +202,8 @@ $('#agreed').hide();
 
 
 $( ".next" ).bind( "click", function() {
+
+
 label=$('label');
 var value=$("label input:checked").val();
 value=parseInt(value);
@@ -245,7 +248,18 @@ else {
 
 
 $('.question').hide();
+$('.sharething').show();
+
+setTimeout(function() {
+
+$('.sharething').hide();
 $('.result').show();
+
+}, 5000);
+
+
+
+
 sco=calc_score();
 // $(".image").attr('src',img);
 $('.name').text(nameV);
@@ -430,8 +444,8 @@ function cavasThing(x){
 
 
 $('.retake').bind('click',retake);
-$('.share').bind('click',share);
-// $('.make').bind('click',domagic);
+// $('.share').bind('click',share);
+$('.make').bind('click',make);
 
 
 
@@ -478,9 +492,8 @@ function domagic(x){
 
 function share(){
 
-var appurl="http://sarabpreet.in";
-var entireMessage="[Result]\n "+nameV+" : "+heading+" \n\n check your result@ "+appurl+" \n \n#NationalistBecause";
-
+var appurl="http://bit.ly/iamnationalist";
+var entireMessage="[Result]\n "+nameV+" : "+heading+" \n\n ===================\nAre you nationalist? Find out@ "+appurl+" \n \n#NationalistBecause";
 
   FB.api('/me/feed', 'post', {message: entireMessage});
   $('.shareM').modal('toggle');
