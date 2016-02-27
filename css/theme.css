@@ -1,6 +1,7 @@
 body {
   font-family: 'Lato', sans-serif;
   color: ##313131;
+  position: relative;
   /* Rectangle 1: */
   background: #5F6887;
 }
@@ -413,7 +414,25 @@ img {
 .makeM {
   text-align: center;
 }
+.fix {
+  z-index: 50;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+  background-image: linear-gradient(-180deg, #46ccd2 0%, #79cd6e 100%);
+}
+.fix a {
+  padding: 20px;
+  background: transparent;
+  font-size: 12px;
+}
+.fix a:hover {
+  background: transparent;
+}
 @media only screen and (max-width: 500px) {
+  .fix {
+    display: none;
+  }
   .warning h2 {
     font-size: 14px;
     text-align: left;
@@ -452,5 +471,13 @@ img {
   #myCanvas {
     width: 100px;
     height: 100px;
+  }
+  .fix {
+    z-index: 50;
+    padding: 20px;
+    position: fixed;
+    right: 20px;
+    top: 30px;
+    background-image: linear-gradient(-180deg, #46ccd2 0%, #79cd6e 100%);
   }
 }
