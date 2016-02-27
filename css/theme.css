@@ -413,7 +413,7 @@ img {
 .makeM {
   text-align: center;
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 500px) {
   .warning h2 {
     font-size: 14px;
     text-align: left;
