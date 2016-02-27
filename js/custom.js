@@ -16,22 +16,18 @@ var db={
 		},
 
 		3:{
-			question:"When did you said 'Bharat Mata Ki Jai?' recently?",
 			answer:['In a public gathering, in a facebook/twitter post','i don\'t know (never said, or cared much)'],
 			ra:1
 		},
 
 
 		4:{
-			question:"Are you good when it comes to editing pictures/videos/audios?",
-			answer:['Yes, i post alot of such stuffs','No, never done!'],
 			ra:1
 		},
 
 
 		5:{
 			question:"How will you react if someone say anything disrespectfull about your country?",
-			answer:['Will kill/beat him or her.',' will try to know the reason, if possible will try to make a counter point.'],
 			ra:1
 		},
 
@@ -39,13 +35,11 @@ var db={
 		6:{
 			question:"If you could go to Pakistan for a bag pack trip, would you?",
       answer:['Yes','No'],
-			ra:1
 		},
 
 
 		7:{
 			question:"Do you like news anchors being a judge, or lawyer's being a Judge?",
-      answer:['YES, Why not? After all they shout, know the facts etc.','No, A Judge should be a Judge. NOT ANYONE ELSE'],
 			ra:1
 		}
 	}
