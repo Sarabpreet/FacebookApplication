@@ -1,33 +1,30 @@
-// nationalist or not 
-
 var db={
 
-	qa:{
-		1:{
+	qa:{1:{
 			question:"Are you a proud Indian?",
        answer:["Yes", "No"],
        ra:1
-		},
-
-		2:{
+		},2:{
 			question:"Would you be intrested in counting number of used condom's in a university?",
 			answer:['Yes','No'],
       ra:1
-		},
-
-		3:{
+		},3:{
+			question:"When did you say'Bharat Mata Ki Jai?' recently?",
 			answer:['In a public gathering, in a facebook/twitter post','i don\'t know (never said, or cared much)'],
 			ra:1
 		},
 
 
 		4:{
+			question:"would you be willing to  edit pictures/videos/audios? for defending your faith in a political party?",
+			answer:['Yes,why not after all my political party is right always!','No, never done!, never will!'],
 			ra:1
 		},
 
 
 		5:{
 			question:"How will you react if someone say anything disrespectfull about your country?",
+			answer:['Will kill/beat him or her.',' Will try to know the reason, if possible will try to make a counter point.'],
 			ra:1
 		},
 
@@ -35,11 +32,13 @@ var db={
 		6:{
 			question:"If you could go to Pakistan for a bag pack trip, would you?",
       answer:['Yes','No'],
+			ra:2
 		},
 
 
 		7:{
 			question:"Do you like news anchors being a judge, or lawyer's being a Judge?",
+      answer:['YES, Why not? After all they shout, they know the facts!','No, A Judge should be a Judge. NOT ANYONE ELSE'],
 			ra:1
 		}
 	}
