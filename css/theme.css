@@ -158,6 +158,10 @@ a.next:hover {
   padding: 0px;
   margin: 0px;
 }
+.sharething h2 {
+  text-align: center;
+  padding: 5px;
+}
 a.q-head {
   /* Rectangle 2 Copy 3: */
   background: #45A2D9;
